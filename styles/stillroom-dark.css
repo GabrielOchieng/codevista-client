@@ -1,0 +1,87 @@
+/* Stillroom Dark Highlight.js Theme */
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  background: #0b0b0d;
+  color: var(--pure-white);
+  padding: 1rem;
+  border-radius: 0.75rem;
+  line-height: 1.6;
+}
+
+/* Comments, quotes */
+.hljs-comment,
+.hljs-quote {
+  color: var(--pure-white);
+  font-style: italic;
+}
+
+/* Keywords, control flow */
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-subst {
+  color: var(--pure-white);
+  font-weight: 500;
+}
+
+/* Strings, chars */
+.hljs-string,
+.hljs-doctag {
+  color: var(--solar-sand);
+}
+
+/* Numbers, constants */
+.hljs-number,
+.hljs-literal,
+.hljs-symbol,
+.hljs-bullet {
+  color: var(--solar-sunlight);
+}
+
+/* Function names */
+.hljs-title,
+.hljs-section {
+  color: var(--pure-white);
+  font-weight: 600;
+}
+
+/* Types and classes */
+.hljs-type,
+.hljs-class .hljs-title {
+  color: var(--solar-yellow);
+  font-weight: 500;
+}
+
+/* Attributes, variables */
+.hljs-attr,
+.hljs-variable,
+.hljs-template-variable {
+  color: var(--solar-sand);
+}
+
+/* Built-ins and tags */
+.hljs-built_in,
+.hljs-tag {
+  color: var(--solar-sunlight);
+}
+
+/* Addition / diff highlight */
+.hljs-addition {
+  color: var(--solar-sky);
+  background: var(--pure-graphite);
+}
+
+/* Deletion / diff highlight */
+.hljs-deletion {
+  color: var(--pure-graphite);
+  background: var(--pure-graphite);
+}
+
+/* Emphasis and strong */
+.hljs-emphasis {
+  font-style: italic;
+}
+.hljs-strong {
+  font-weight: 600;
+}
