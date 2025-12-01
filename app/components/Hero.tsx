@@ -38,7 +38,7 @@ const Hero = () => {
           </button>
         </Link>
         <a
-          href="https://github.com/GabrielOchieng/CodeVista"
+          href="https://github.com/GabrielOchieng/codevista-client"
           target="_blank"
           rel="noopener noreferrer"
           className=" w-56 px-8 py-3 font-medium text-(--pure-silver) transition rounded-xl border border-(--solar-ocean) hover:opacity-90 cursor-pointer hover:text-(--solar-sky) hover:border-(--solar-sky)"

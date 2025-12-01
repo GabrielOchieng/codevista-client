@@ -19,7 +19,9 @@ const Navbar = () => {
             alt="CodeVista Logo"
             width={28}
             height={28}
+            className="hidden sm:block"
           />
+
           <h1 className="text-xl font-medium tracking-wider hover:text-(--solar-sky) transition">
             CodeVista
           </h1>
@@ -27,7 +29,9 @@ const Navbar = () => {
 
         <nav className="flex items-center gap-6 text-sm">
           <a href="/#features">Features</a>
-          <a href="/#mission">Mission</a>
+          <a href="/#mission" className="hidden sm:block">
+            Mission
+          </a>
           <a href="/#cta">Start</a>
 
           {/* Theme Toggle */}
