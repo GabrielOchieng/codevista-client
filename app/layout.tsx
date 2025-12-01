@@ -5,7 +5,7 @@ export const metadata = {
   title: "CodeVista — Code Explainer",
   description: "Paste code. Understand code. CodeVista explains it gently.",
   icons: {
-    icon: "/client/public/logo.png",
+    icon: "/codevista.jpg",
   },
 };
 
