@@ -19,13 +19,13 @@ export default function Home() {
   const backendUrl = process.env.NEXT_PUBLIC_API_URL!;
 
   useEffect(() => {
-    const saved = localStorage.getItem("stillroom_history");
+    const saved = localStorage.getItem("codevista_history");
     if (saved) setHistory(JSON.parse(saved));
   }, []);
 
   const handlePaste = (e: React.ClipboardEvent<HTMLTextAreaElement>) => {
     e.preventDefault();
-    const text = e.clipboardData.getData("text/plain"); // plain text only
+    const text = e.clipboardData.getData("text/plain");
     const start = e.currentTarget.selectionStart;
     const end = e.currentTarget.selectionEnd;
     const newValue = entry.slice(0, start) + text + entry.slice(end);
@@ -52,8 +52,9 @@ export default function Home() {
         { entry, language, reflection: text, ts: Date.now() },
         ...history,
       ].slice(0, 30);
+
       setHistory(newHist);
-      localStorage.setItem("stillroom_history", JSON.stringify(newHist));
+      localStorage.setItem("codevista_history", JSON.stringify(newHist));
     } catch (err: unknown) {
       if (err === "string") {
         setError(err || "Something went wrong.");
@@ -88,6 +89,7 @@ export default function Home() {
                 >
                   Clear
                 </button>
+
                 <div className="flex justify-between gap-x-2">
                   <select
                     value={language}
@@ -117,24 +119,33 @@ export default function Home() {
               </div>
             </div>
 
+            {/* ⭐ SIDEBAR HISTORY LIST */}
             <aside className="bg-(--pure-graphite) overflow-y-auto px-6 pb-5 max-md:hidden h-full">
               <h3 className="pl-2 text-center text-lg tracking-wider font-semibold text-(--pure-white) bg-(--pure-graphite) sticky top-0 py-4">
                 History
               </h3>
+
               <div className="space-y-3 w-95">
                 {history.length === 0 && (
                   <p className="text-neutral-600">
                     No remembered explanations yet
                   </p>
                 )}
+
                 {history.map((h, i) => (
                   <div
                     key={i}
-                    className="p-3 border bg-(--pure-graphite) border-(--pure-gray)/20 rounded-xl shadow-md"
+                    onClick={() => {
+                      setEntry(h.entry);
+                      setLanguage(h.language ?? "");
+                      setReflection(h.reflection ?? "");
+                    }}
+                    className="p-3 border bg-(--pure-graphite) border-(--pure-gray)/20 rounded-xl shadow-md cursor-pointer hover:bg-(--pure-charcoal) transition"
                   >
                     <div className="text-sm italic truncate text-(--pure-silver)">
                       {h.entry}
                     </div>
+
                     <div className="mt-1 text-xs text-(--pure-gray)">
                       {h.language ?? "Auto-detect"} •{" "}
                       {new Date(h.ts).toLocaleString()}
@@ -144,11 +155,13 @@ export default function Home() {
               </div>
             </aside>
           </div>
+
           {error && (
             <p className="mt-3 text-(--pure-white) bg-(--solar-ocean) px-5 py-4 z-50 rounded-lg absolute right-8 top-4">
               {error}
             </p>
           )}
+
           {loading && <Loader />}
           {reflection && <Reflection text={reflection} />}
         </section>
